@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="sale_rma_invoice_wizard_form" model="ir.ui.view">
+        <field name="name">sale.rma.invoice.wizard.form</field>
+        <field name="model">sale.rma.invoice.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="ticket_id" readonly="1"/>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="Invoice Lines">
+                                <field name="invoice_line_ids">
+                                    <list editable="bottom">
+                                        <field name="product_id" readonly="1" force_save="1"/>
+                                        <field name="available_for_invoice" force_save="1" readonly="1"/>
+                                        <field name="invoice_qty" force_save="1" />
+                                        <field name="rma_line_id" column_invisible="1"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                    <footer>
+                        <button name="action_create_invoice" string="Create Invoice" type="object" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

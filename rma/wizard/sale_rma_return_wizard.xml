@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="rma_wizard_form" model="ir.ui.view">
+        <field name="name">rma.wizard.form</field>
+        <field name="model">rma.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="ticket_id" readonly="1"/>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="RMA Lines">
+                                <field name="wizard_rma_lines_ids">
+                                    <list editable="bottom">
+                                        <field name="product_id" readonly="1" force_save="1"/>
+                                        <field name="so_qty" readonly="1" force_save="1"/>
+                                        <field name="available_qty" />
+                                        <field name="qty" />
+                                        <field name="rma_lines_id" column_invisible="1"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                    <footer>
+                        <button name="process_return" string="Process" type="object" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
+

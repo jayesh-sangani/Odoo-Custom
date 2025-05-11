@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="res_partner_inherited_view" model="ir.ui.view">
+        <field name="name">res.partner.inherited.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[2]/group[1]//field[@name='user_id']" position="before">
+                <field name="extra_discount"/>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="terms_and_conditions"/>
+            </xpath>
+            <xpath expr="//field[@name='terms_and_conditions']" position="after">
+                <field name="use_customers_tc"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
